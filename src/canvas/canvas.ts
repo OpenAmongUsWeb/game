@@ -1,3 +1,5 @@
+import { Player } from "../player/player";
+
 export class Canvas {
     public canvas: HTMLCanvasElement;
     public ctx: CanvasRenderingContext2D;
@@ -12,5 +14,16 @@ export class Canvas {
 
         this.canvas.width = window.innerWidth;
         this.canvas.height = window.innerHeight;
+    }
+
+    public drawPlayer(player: Player): void {
+        this.ctx.fillStyle = player.getColor();
+
+        this.ctx.fillRect(
+            player.getOffsetX(),
+            player.getOffsetY(),
+            player.getWidth(),
+            player.getHeight()
+        );
     }
 }
