@@ -7,7 +7,7 @@ export class Game {
     public running: boolean;
 
     constructor() {
-        window.addEventListener('load', () => this.load());
+        this.load();
     }
 
     private load(): void {
@@ -21,19 +21,23 @@ export class Game {
     }
 
     public start(): void {
+        this.running = true;
     }
 
     public update(): void {
+        if(this.running) {
+        }
     }
 
     public stop(): void {
+        this.running = false;
     }
 
     public render(): void {
     }
-
-    public destroy(): void {
-        window.removeEventListener('load', () => this.load());
-    }
 }
-new Game();
+
+
+window.addEventListener('load', () => {
+    const game = new Game();
+})
